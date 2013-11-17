@@ -22,15 +22,15 @@ sheet belongs to user
 sheet has many airtimes
 sheet has many promos
 sheet has many ae_specs through promos
-sheet has many tbl_specs through promos
+sheet has one tbl_spec
 
 ae_spec belongs to promo
 
-tbl_spec belongs to promo
+tbl_spec belongs to sheet
+
 
 promo belongs to sheet
 promo has many ae_specs
-promo has many tbl_specs
 
 airtime belongs to sheet
 
@@ -80,6 +80,6 @@ promo_id
 
 tbl_spec:
 content
-promo_id
+sheet_id
 
 property:

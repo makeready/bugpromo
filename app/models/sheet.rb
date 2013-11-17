@@ -4,5 +4,5 @@ class Sheet < ActiveRecord::Base
 	has_many :promos
 	has_many :airtimes
 	has_many :ae_specs, through: :promos
-	has_many :tbl_specs, through: :promos
+	has_one :tbl_spec
 end
