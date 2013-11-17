@@ -1,2 +1,0 @@
-class TblSpecController < ApplicationController
-end

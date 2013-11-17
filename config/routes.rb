@@ -1,5 +1,9 @@
 Bugpromo::Application.routes.draw do
   root 'sheet#index'
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :users, :only => [:new, :create]
+  resources :sheets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
