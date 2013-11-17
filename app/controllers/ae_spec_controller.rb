@@ -1,0 +1,2 @@
+class AeSpecController < ApplicationController
+end
