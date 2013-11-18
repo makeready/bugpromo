@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+
+  <div class = "property">
+    <!--PROPERTY SELECTOR / CREATOR -->
+  </div>
   
   <div class = "checkbox">
     <%= s.label :sens%>
@@ -71,14 +75,55 @@
     <%= s.check_box :snipe_required%>
   </div>
 
-  <div id = ""
+  <div id = "weekdayboxes">
+  </div>
 
-  <p><%=s.label :name%>
-    <%= s.text_field :name %></p>
-  <p>Description: <%= s.text_field :description %></p>
-  <p>Picture Url: <%= s.text_field :picture %></p>
-  <p>Price in cents: <%= s.text_field :price %></p>
-  <p><%= s.submit %></p>
+  <div id = "airtimes">
+    <!--AIRTIME INSTANCES -->
+  </div>
+
+  <div class = "teamname">
+    <%= s.label :team1 %>
+    <%= s.text_field :team1 %>
+  </div>
+
+  <div class = "teamname">
+    <%= s.label :team2 %>
+    <%= s.text_field :team2 %>
+  </div>
+
+  <div class = "datefield">
+    <%= s.label :event_date %>
+    <%= s.date_field :event_date %>
+  </div>
+
+  <div class = "datefield">
+    <%= s.label :due_date %>
+    <%= s.date_field :due_date %>
+  </div>
+
+  <div class = "notefield">
+    <%= s.label :note %>
+    <%= s.text_field :note %>
+  </div>
+
+  <div id = "promorowcontainer">
+    <!--ROW SECTION-->
+    <table>
+      <tr>
+        <td>Length</td>
+        <td>Quantel Name</td>
+        <td>S4M Name</td>
+        <td>MCR #</td>
+        <td>Purge Date</td>
+      </tr>
+      <%# @promos.each do some stuff %>
+      <%# end %>
+    </table>
+  </div>
+
+
+  <%= s.submit %>
 <% end %>
 <%= link_to "Cancel", sheets_path %>
 
@@ -99,4 +144,10 @@
     t.string   "weekday1"
     t.string   "weekday2"
     t.string   "weekday3"
-    t.integer  "user_id" -->
+    t.integer  "user_id" 
+    t.integer  "property_id"
+    t.date     "event_date"
+    t.date     "due_date"
+    t.text     "note"
+    t.string   "team1"
+    t.string   "team2"-->

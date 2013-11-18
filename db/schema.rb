@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117065631) do
+ActiveRecord::Schema.define(version: 20131118051127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,6 @@ ActiveRecord::Schema.define(version: 20131117065631) do
     t.integer  "sheet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "property_id"
-    t.date     "event_date"
-    t.date     "due_date"
-    t.text     "note"
-    t.string   "team1"
-    t.string   "team2"
   end
 
   create_table "properties", force: true do |t|
@@ -74,6 +68,12 @@ ActiveRecord::Schema.define(version: 20131117065631) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "property_id"
+    t.date     "event_date"
+    t.date     "due_date"
+    t.text     "note"
+    t.string   "team1"
+    t.string   "team2"
   end
 
   create_table "tbl_specs", force: true do |t|
