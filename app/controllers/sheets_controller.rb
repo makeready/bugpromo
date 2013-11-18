@@ -4,11 +4,17 @@ class SheetsController < ApplicationController
 	end
 
 	def new
-		@sheet = Sheet.new
+
+		@sheet = current_user.sheets.build
+		3.times {@sheet.airtimes.build}
+		3.times {@sheet.promos.build}
+		
 	end
 
 	def create
-		@sheet = Sheet.new(sheet_params)
+		@sheet = current_user.sheets.build(sheet_params)
+		@property = Property.new
+		
 		if @sheet.save
 			redirect_to sheets_path
 		else

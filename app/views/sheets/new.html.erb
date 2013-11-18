@@ -12,7 +12,10 @@
   <% end %>
 
   <div class = "property">
-    <!--PROPERTY SELECTOR / CREATOR -->
+    <%= s.fields_for :property do |property_form| %>
+      Property
+      <%= property_form.text_field :name %>
+    <% end %> 
   </div>
   
   <div class = "checkbox">
@@ -79,7 +82,14 @@
   </div>
 
   <div id = "airtimes">
-    <!--AIRTIME INSTANCES -->
+    <%= s.fields_for :airtimes do |airtime_form| %>
+      <div class = "airtime">
+        <%=airtime_form.label :time%>
+        <%=airtime_form.time_field :time %>
+        <%=airtime_form.label :timezone %>
+        <%=airtime_form.text_field :timezone%>
+      </div>
+    <% end %>
   </div>
 
   <div class = "teamname">
@@ -117,8 +127,31 @@
         <td>MCR #</td>
         <td>Purge Date</td>
       </tr>
-      <%# @promos.each do some stuff %>
-      <%# end %>
+      <%= s.fields_for :promos do |promo_form| %>
+        <tr>
+          <td>
+            <%#=promo_form.label :length%>
+            <%=promo_form.number_field :length%>
+          </td>
+          <td>
+            <%#=promo_form.label :quantel_name%>
+            <%=promo_form.text_field :quantel_name%>
+          </td>
+          <td>
+            <%#=promo_form.label :s4m_name%>
+            <%=promo_form.text_field :s4m_name%>
+          </td>
+          <td>
+            <%#=promo_form.label :mcr_number%>
+            <%=promo_form.number_field :mcr_number%>
+          </td>
+          <td>
+            <%#=promo_form.label :purge_date%>
+            <%=promo_form.date_field :purge_date%>
+          </td>
+        </tr>
+      <% end %>
+
     </table>
   </div>
 

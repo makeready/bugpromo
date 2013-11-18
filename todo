@@ -2,3 +2,6 @@ fancy input form for sheet
 autocomplete for teamnames / product tags
 copy to clipboard, either link to the file or in a textbox depending on what they need
 table file is a csv
+
+using jQuery to set up autocomplete fields:
+http://railscasts.com/episodes/102-auto-complete-association-revised?view=comments
