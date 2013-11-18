@@ -1,0 +1,102 @@
+<%= form_for @sheet do |s| %>
+
+  <% if @sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prevented this sheet from being saved.</h2>
+      <ul>
+      <% @sheet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class = "checkbox">
+    <%= s.label :sens%>
+    <%= s.check_box :sens%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :flames%>
+    <%= s.check_box :flames%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :oilers%>
+    <%= s.check_box :oilers%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :van_hky%>
+    <%= s.check_box :van_hky%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :world%>
+    <%= s.check_box :world%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :one%>
+    <%= s.check_box :one%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :east%>
+    <%= s.check_box :east%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :ontario%>
+    <%= s.check_box :ontario%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :west%>
+    <%= s.check_box :west%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :pacific%>
+    <%= s.check_box :pacific%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :is_360%>
+    <%= s.check_box :is_360%>
+  </div>
+
+  <div class = "checkbox">
+    <%= s.label :snipe_required%>
+    <%= s.check_box :snipe_required%>
+  </div>
+
+  <div id = ""
+
+  <p><%=s.label :name%>
+    <%= s.text_field :name %></p>
+  <p>Description: <%= s.text_field :description %></p>
+  <p>Picture Url: <%= s.text_field :picture %></p>
+  <p>Price in cents: <%= s.text_field :price %></p>
+  <p><%= s.submit %></p>
+<% end %>
+<%= link_to "Cancel", sheets_path %>
+
+
+
+    <!-- t.boolean  "sens"
+    t.boolean  "flames"
+    t.boolean  "oilers"
+    t.boolean  "van_hky"
+    t.boolean  "world"
+    t.boolean  "one"
+    t.boolean  "east"
+    t.boolean  "ontario"
+    t.boolean  "west"
+    t.boolean  "pacific"
+    t.boolean  "is_360"
+    t.boolean  "snipe_required"
+    t.string   "weekday1"
+    t.string   "weekday2"
+    t.string   "weekday3"
+    t.integer  "user_id" -->

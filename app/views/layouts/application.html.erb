@@ -9,13 +9,18 @@
 <body>
 	<div id = "topbar">
 		<div id = "topbar_left">
+			<% if current_user %>
+				<%= link_to "Create New Sheet", new_sheet_path %>
+			<% else %>
+				Log in to create new sheets.
+			<% end %>
 		</div>
 		<div id = "topbar_right">
-			  <% if current_user %>
-          Welcome, <%= current_user.name %> | <%= link_to "Log out", session_path("current"), method: :delete %>
-        <% else %>
-          <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
-        <% end %>
+		  <% if current_user %>
+        Welcome, <%= current_user.name %> | <%= link_to "Log out", session_path("current"), method: :delete %>
+      <% else %>
+        <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+      <% end %>
 		</div>
 	</div>
 
@@ -28,7 +33,7 @@
       <% end %>
 
       <%= yield %>
-      
+
     </div>
 
 </body>

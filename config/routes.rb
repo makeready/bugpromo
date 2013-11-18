@@ -1,5 +1,5 @@
 Bugpromo::Application.routes.draw do
-  root 'sheet#index'
+  root 'sheets#index'
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
