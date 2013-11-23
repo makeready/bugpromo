@@ -1,4 +1,5 @@
 class SheetsController < ApplicationController
+	autocomplete :property, :name
 	def index
 		@sheets = Sheet.all
 	end
@@ -8,13 +9,22 @@ class SheetsController < ApplicationController
 		@sheet = current_user.sheets.build
 		3.times {@sheet.airtimes.build}
 		3.times {@sheet.promos.build}
-		
+		@property_names = Property.all.map{|x| x.name}
+		@teamnames = Teamname.all.map{|x| x.name}
 	end
 
 	def create
 		@sheet = current_user.sheets.build(sheet_params)
-		@property = Property.new
-		
+		@property = Property.find_by name: params[:property_name]
+		if @property
+			@sheet.property_id = @property.id
+		else
+			@property = Property.new
+			@property.name = @sheet.property_name
+			@property.save
+			@sheet.property_id = @property.id
+		end
+
 		if @sheet.save
 			redirect_to sheets_path
 		else
@@ -28,6 +38,8 @@ class SheetsController < ApplicationController
 
 	def update
 		@sheet = Sheet.find(params[:id])
+		@teamnames = Teamname.all
+
 		if @sheet.update_attributes(sheet_params)
 			redirect_to edit_sheet_path(@sheet)
 		else
@@ -40,4 +52,6 @@ class SheetsController < ApplicationController
 		@sheet.destroy
 		redirect_to sheets_path
 	end
+
+	def 
 end

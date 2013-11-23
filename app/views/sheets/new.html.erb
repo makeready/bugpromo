@@ -12,10 +12,8 @@
   <% end %>
 
   <div class = "property">
-    <%= s.fields_for :property do |property_form| %>
-      Property
-      <%= property_form.text_field :name %>
-    <% end %> 
+    <%= s.label :property_name %>
+    <%= s.text_field :property_name %>
   </div>
   
   <div class = "checkbox">
@@ -158,7 +156,20 @@
 
   <%= s.submit %>
 <% end %>
-<%= link_to "Cancel", sheets_path %>
+<button><%= link_to "Cancel", sheets_path %></button>
+
+<% if @property_names.size > 0 %>
+  <script>
+    $( "#sheet_property_name" ).autocomplete({source: <%= raw @property_names%>});
+  </script>
+<% end %>
+
+<% if @teamnames.size > 0 %>
+  <script>
+    $( "#sheet_team1").autocomplete({source: <%= raw @teamnames%>});
+    $( "#sheet_team2").autocomplete({source: <%= raw @teamnames%>});
+  </script>
+<% end %>
 
 
 

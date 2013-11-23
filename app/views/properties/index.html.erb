@@ -1,0 +1,21 @@
+<h1>Manage Properties</h1>
+
+<p>Name Image Path</p>
+<% @newproperty = Property.new %>
+<%= form_for @newproperty do |np| %>
+	<%= np.text_field :name %>
+	<%= np.text_field :image_path %>
+	<%= np.submit %>
+<% end %>
+<br>
+<% @properties.each do |property| %>
+		<%= form_for property do |p| %>
+			<%= p.text_field :name %>
+			<%= p.text_field :image_path %>
+			<%= p.submit %>
+		<% end %>
+	<button class = "delete-property-button">
+			<%= link_to "Delete Property", property_path(property.id), confirm: "Are you sure you wish to delete this property?", method: :delete %>
+	</button>
+	<br>
+<% end %>
