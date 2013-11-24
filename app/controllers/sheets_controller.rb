@@ -53,5 +53,5 @@ class SheetsController < ApplicationController
 		redirect_to sheets_path
 	end
 
-	def 
+	
 end
