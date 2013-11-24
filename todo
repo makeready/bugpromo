@@ -1,6 +1,13 @@
 
 * autocomplete for teamnames / product tags
-set up sheet_params with nested fields_for params
+* set up sheet_params with nested fields_for params
+* fix existing property check in sheet#create
+
+create new teamname instances on sheet create
+add validation for sheet#create and sheet#edit
+add delete sheet functionality
 copy to clipboard, either link to the file or in a textbox depending on what they need
 table file is a csv
-fancy input form for sheet
+style input form for sheet
+style property manager
+style sheet index

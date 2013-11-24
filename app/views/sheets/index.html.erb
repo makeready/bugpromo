@@ -1,0 +1,7 @@
+<% @sheets.each do |sheet| %>
+	<p><%= link_to "#{sheet.team1} vs #{sheet.team2}", sheet_path(sheet) %>
+		<button>
+			<%= link_to "Delete Sheet", sheet_path(sheet.id), confirm: "Are you sure you wish to delete this sheet?", method: :delete %>
+		</button>
+	</p>
+<% end %>

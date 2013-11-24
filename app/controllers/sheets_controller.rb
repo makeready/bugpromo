@@ -5,7 +5,6 @@ class SheetsController < ApplicationController
 	end
 
 	def new
-
 		@sheet = current_user.sheets.build
 		3.times {@sheet.airtimes.build}
 		3.times {@sheet.promos.build}
@@ -15,15 +14,16 @@ class SheetsController < ApplicationController
 
 	def create
 		@sheet = current_user.sheets.build(sheet_params)
-		@property = Property.find_by name: params[:property_name]
-		if @property
-			@sheet.property_id = @property.id
-		else
-			@property = Property.new
-			@property.name = @sheet.property_name
-			@property.save
-			@sheet.property_id = @property.id
-		end
+
+		@property = Property.find_or_create_by(name: @sheet.property_name)
+		@property.save
+		@sheet.property_id = @property.id
+
+		@teamname1 = Teamname.find_or_create_by(name: @sheet.team1)
+		@teamname1.save
+
+		@teamname2 = Teamname.find_or_create_by(name: @sheet.team2)
+		@teamname2.save
 
 		if @sheet.save
 			redirect_to sheets_path
@@ -34,6 +34,8 @@ class SheetsController < ApplicationController
 
 	def edit
 		@sheet = Sheet.find(params[:id])
+		@property_names = Property.all.map{|x| x.name}
+		@teamnames = Teamname.all.map{|x| x.name}
 	end
 
 	def update
@@ -47,6 +49,11 @@ class SheetsController < ApplicationController
 		end
 	end
 
+	def show
+		@sheet = Sheet.find(params[:id])
+		redirect_to edit_sheet_path(@sheet)
+	end
+
 	def destroy
 		@sheet = Sheet.find(params[:id])
 		@sheet.destroy
@@ -57,29 +64,3 @@ class SheetsController < ApplicationController
 		params.require(:sheet).permit(:sens,:flames,:oilers,:van_hky,:world,:one,:east,:ontario,:west,:pacific,:is_360,:snipe_required,:team1,:team2,:property_name,:property_id,:user_id,:note,:event_date,:due_date, airtimes_attributes: [:sheet_id,:timezone,:time], promos_attributes: [:length,:quantel_name,:s4m_name,:mcr_number,:purge_date,:sheet_id])
 	end
 end
-
-
-
-
-    # t.boolean  "sens"
-    # t.boolean  "flames"
-    # t.boolean  "oilers"
-    # t.boolean  "van_hky"
-    # t.boolean  "world"
-    # t.boolean  "one"
-    # t.boolean  "east"
-    # t.boolean  "ontario"
-    # t.boolean  "west"
-    # t.boolean  "pacific"
-    # t.boolean  "is_360"
-    # t.boolean  "snipe_required"
-    # t.string   "weekday1"
-    # t.string   "weekday2"
-    # t.string   "weekday3"
-    # t.integer  "user_id" 
-    # t.integer  "property_id"
-    # t.date     "event_date"
-    # t.date     "due_date"
-    # t.text     "note"
-    # t.string   "team1"
-    # t.string   "team2"
