@@ -14,7 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$( "#sheet_property_name" ).autocomplete({
-  source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-});

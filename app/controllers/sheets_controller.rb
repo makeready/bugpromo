@@ -53,5 +53,33 @@ class SheetsController < ApplicationController
 		redirect_to sheets_path
 	end
 
-	
+	def sheet_params
+		params.require(:sheet).permit(:sens,:flames,:oilers,:van_hky,:world,:one,:east,:ontario,:west,:pacific,:is_360,:snipe_required,:team1,:team2,:property_name,:property_id,:user_id,:note,:event_date,:due_date, airtimes_attributes: [:sheet_id,:timezone,:time], promos_attributes: [:length,:quantel_name,:s4m_name,:mcr_number,:purge_date,:sheet_id])
+	end
 end
+
+
+
+
+    # t.boolean  "sens"
+    # t.boolean  "flames"
+    # t.boolean  "oilers"
+    # t.boolean  "van_hky"
+    # t.boolean  "world"
+    # t.boolean  "one"
+    # t.boolean  "east"
+    # t.boolean  "ontario"
+    # t.boolean  "west"
+    # t.boolean  "pacific"
+    # t.boolean  "is_360"
+    # t.boolean  "snipe_required"
+    # t.string   "weekday1"
+    # t.string   "weekday2"
+    # t.string   "weekday3"
+    # t.integer  "user_id" 
+    # t.integer  "property_id"
+    # t.date     "event_date"
+    # t.date     "due_date"
+    # t.text     "note"
+    # t.string   "team1"
+    # t.string   "team2"

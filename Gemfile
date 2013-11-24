@@ -45,5 +45,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # gem 'debugger', group: [:development, :test]
 
 
-gem "rails3-jquery-autocomplete"
+#gem "rails3-jquery-autocomplete"
 
