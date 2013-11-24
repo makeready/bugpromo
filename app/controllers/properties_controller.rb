@@ -30,6 +30,6 @@ class PropertiesController < ApplicationController
   end
 
 	def property_params
-		params.require(:property).permit(:name, :image_path)
+		params.require(:property).permit(:name, :image_path, :logo_path)
 	end
 end

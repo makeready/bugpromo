@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123235235) do
+ActiveRecord::Schema.define(version: 20131124045349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ae_specs", force: true do |t|
-    t.text     "content"
-    t.integer  "promo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sheet_id"
+    t.integer  "promo_id"
+    t.text     "content"
   end
 
   create_table "airtimes", force: true do |t|
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131123235235) do
     t.string   "image_path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_path"
   end
 
   create_table "sheets", force: true do |t|
@@ -78,10 +80,22 @@ ActiveRecord::Schema.define(version: 20131123235235) do
   end
 
   create_table "tbl_specs", force: true do |t|
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sheet_id"
+    t.string   "image_path"
+    t.string   "property_name"
+    t.string   "team1"
+    t.string   "team2"
+    t.string   "time_variable"
+    t.string   "day"
+    t.boolean  "world"
+    t.boolean  "east"
+    t.boolean  "ontario"
+    t.boolean  "west"
+    t.boolean  "pacific"
+    t.boolean  "one"
+    t.string   "logo_path"
   end
 
   create_table "teamnames", force: true do |t|

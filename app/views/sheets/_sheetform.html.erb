@@ -77,6 +77,12 @@
   </div>
 
   <div id = "weekdayboxes">
+    <%= s.label :weekday1%>
+    <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]) %>
+    <%= s.label :weekday2%>
+    <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]) %>
+    <%= s.label :weekday3%>
+    <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]) %>
   </div>
 
   <div id = "airtimes">

@@ -1,10 +1,11 @@
 <h1>Manage Properties</h1>
 
-<p>Name Image Path</p>
+<p><span>Name</span><span>Image Path</span><span>Logo Path</span></p>
 <% @newproperty = Property.new %>
 <%= form_for @newproperty do |np| %>
 	<%= np.text_field :name %>
 	<%= np.text_field :image_path %>
+	<%= np.text_field :logo_path %>
 	<%= np.submit %>
 <% end %>
 <br>
@@ -12,6 +13,7 @@
 		<%= form_for property do |p| %>
 			<%= p.text_field :name %>
 			<%= p.text_field :image_path %>
+			<%= p.text_field :logo_path %>
 			<%= p.submit %>
 		<% end %>
 	<button class = "delete-property-button">

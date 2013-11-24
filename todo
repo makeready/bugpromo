@@ -1,14 +1,26 @@
-
+///DONE
 * autocomplete for teamnames / product tags
 * set up sheet_params with nested fields_for params
 * fix existing property check in sheet#create
 * create new teamname instances on sheet create
+* add teamname manager
+* generate tbl_spec on sheet#create/sheet#edit
+* add delete sheet functionality
+* generate ae_specs on sheet#create/sheet#edit
 
+///FUNCTION
+set up ae_spec.content on sheet#create / sheet#edit
 restrict sheet deletion and editing to logged in users
 add validation for sheet#create and sheet#edit
-add delete sheet functionality
 copy to clipboard, either link to the file or in a textbox depending on what they need
 table file is a csv
+
+///STYLING
 style input form for sheet
 style property manager
 style sheet index
+
+///QUESTIONS
+only city name in tbl_spec, instead of full team name??
+how to handle multiple weekday names in tbl_spec??
+what are the possible timezones??
