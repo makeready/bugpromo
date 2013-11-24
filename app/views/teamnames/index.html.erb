@@ -1,0 +1,19 @@
+<h1>Manage Teamnames</h1>
+
+<p>Name</p>
+<% @newteamname = Teamname.new %>
+<%= form_for @newteamname do |nt| %>
+	<%= nt.text_field :name %>
+	<%= nt.submit %>
+<% end %>
+<br>
+<% @teamnames.each do |teamname| %>
+		<%= form_for teamname do |p| %>
+			<%= p.text_field :name %>
+			<%= p.submit %>
+		<% end %>
+	<button class = "delete-teamname-button">
+			<%= link_to "Delete Teamname", teamname_path(teamname.id), confirm: "Are you sure you wish to delete this teamname?", method: :delete %>
+	</button>
+	<br>
+<% end %>

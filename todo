@@ -2,8 +2,9 @@
 * autocomplete for teamnames / product tags
 * set up sheet_params with nested fields_for params
 * fix existing property check in sheet#create
+* create new teamname instances on sheet create
 
-create new teamname instances on sheet create
+restrict sheet deletion and editing to logged in users
 add validation for sheet#create and sheet#edit
 add delete sheet functionality
 copy to clipboard, either link to the file or in a textbox depending on what they need
