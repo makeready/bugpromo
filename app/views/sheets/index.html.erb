@@ -6,13 +6,18 @@
 </button>
 <% @sheets.each do |sheet| %>
 	<p><%= link_to "#{sheet.team1} vs #{sheet.team2}", sheet_path(sheet) %>
-		<button>
-			<%= link_to "View CSV", tbl_spec_path(sheet.tbl_spec, format:"html") %>
-		</button>
 
-		<button>
-			<%= link_to "Download CSV", tbl_spec_path(sheet.tbl_spec, format:"csv") %>
-		</button>
+		<% if sheet.tbl_spec %>
+
+			<button>
+				<%= link_to "View CSV", tbl_spec_path(sheet.tbl_spec, format:"html") %>
+			</button>
+
+			<button>
+				<%= link_to "Download CSV", tbl_spec_path(sheet.tbl_spec, format:"csv") %>
+			</button>
+
+		<% end %>
 
 		<button>
 			<%= link_to "Delete Sheet", sheet_path(sheet.id), confirm: "Are you sure you wish to delete this sheet?", method: :delete %>

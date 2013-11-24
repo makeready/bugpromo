@@ -47,3 +47,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem "rails3-jquery-autocomplete"
 
+gem "debugger"
+
+# gem "jazz_hands"

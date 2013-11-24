@@ -1,3 +1,5 @@
+require 'debugger'
+
 class SheetsController < ApplicationController
 	autocomplete :property, :name
 	def index
@@ -14,23 +16,20 @@ class SheetsController < ApplicationController
 
 	def create
 		@sheet = current_user.sheets.build(sheet_params)
-
+		@sheet.save
 		update_property
 		update_teamnames
 		update_tbl_spec
 		update_ae_spec	
 
-		if @sheet.save
-			redirect_to sheets_path
-		else
-			render :new
-		end
+		redirect_to sheets_path
 	end
 
 	def update_tbl_spec
 		#CREATE TBL SPEC  --- CSV FILE
 		@tbl_spec = TblSpec.find_or_create_by(sheet_id: @sheet.id)
 		@tbl_spec.sheet_id = @sheet.id
+		puts "sheet.id: #{@sheet.id}, tbl_spec.sheet_id: #{@tbl_spec.sheet_id}"
 		@tbl_spec.image_path = @sheet.property.image_path
 		@tbl_spec.property_name = @sheet.property_name
 		@tbl_spec.team1 = @sheet.team1

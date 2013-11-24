@@ -11,8 +11,11 @@
 		<div id = "topbar_left">
       <%= link_to "Home", sheets_path %>
 			<% if current_user %>
+      |
 				<%= link_to "Create New Sheet", new_sheet_path %>
+      |
         <%= link_to "Manage Properties", properties_path %>
+      |
         <%= link_to "Manage Teamnames", teamnames_path %>
 			<% else %>
 				Log in to create new sheets.

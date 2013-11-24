@@ -10,16 +10,14 @@
 * added dependent deletes for sheet -> promo -> ae_spec and sheet -> tbl_spec
 * table file is a csv
 * fixed tbl_spec.to_csv not working at all
-
-///BUGS
-new tbl_specs dont have the right sheet_id
+* fixed new tbl_specs dont have the right sheet_id
 
 
 ///FUNCTION
 set up ae_spec.content on sheet#create / sheet#edit
+set up view / download ae_spec buttons
 restrict sheet deletion and editing to logged in users
 add validation for sheet#create and sheet#edit
-copy to clipboard, either link to the file or in a textbox depending on what they need
 
 ///STYLING
 style input form for sheet
@@ -33,3 +31,7 @@ what are the possible timezones??
 obtain seed list of properties?? 
 get more specific ae_spec.content requirements
 what info to show on sheet#index page??
+include first 3 columns in css? (id/created_at/updated_at)
+ask for logos and background
+
+///BUGS
