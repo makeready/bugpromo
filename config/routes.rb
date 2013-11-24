@@ -6,6 +6,7 @@ Bugpromo::Application.routes.draw do
   resources :sheets
   resources :properties, :only => [:index, :create, :destroy, :update]
   resources :teamnames, :only => [:index, :create, :destroy, :update]
+  resources :tbl_specs, :only => [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

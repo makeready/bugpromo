@@ -7,20 +7,29 @@
 * generate tbl_spec on sheet#create/sheet#edit
 * add delete sheet functionality
 * generate ae_specs on sheet#create/sheet#edit
+* added dependent deletes for sheet -> promo -> ae_spec and sheet -> tbl_spec
+* table file is a csv
+* fixed tbl_spec.to_csv not working at all
+
+///BUGS
+new tbl_specs dont have the right sheet_id
+
 
 ///FUNCTION
 set up ae_spec.content on sheet#create / sheet#edit
 restrict sheet deletion and editing to logged in users
 add validation for sheet#create and sheet#edit
 copy to clipboard, either link to the file or in a textbox depending on what they need
-table file is a csv
 
 ///STYLING
 style input form for sheet
 style property manager
 style sheet index
 
-///QUESTIONS
+///QUESTIONS FOR LAWRENCE
 only city name in tbl_spec, instead of full team name??
 how to handle multiple weekday names in tbl_spec??
 what are the possible timezones??
+obtain seed list of properties?? 
+get more specific ae_spec.content requirements
+what info to show on sheet#index page??

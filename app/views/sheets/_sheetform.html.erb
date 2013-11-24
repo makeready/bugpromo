@@ -78,11 +78,11 @@
 
   <div id = "weekdayboxes">
     <%= s.label :weekday1%>
-    <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]) %>
+    <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
     <%= s.label :weekday2%>
-    <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]) %>
+    <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
     <%= s.label :weekday3%>
-    <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]) %>
+    <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
   </div>
 
   <div id = "airtimes">

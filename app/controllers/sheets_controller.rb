@@ -30,6 +30,7 @@ class SheetsController < ApplicationController
 	def update_tbl_spec
 		#CREATE TBL SPEC  --- CSV FILE
 		@tbl_spec = TblSpec.find_or_create_by(sheet_id: @sheet.id)
+		@tbl_spec.sheet_id = @sheet.id
 		@tbl_spec.image_path = @sheet.property.image_path
 		@tbl_spec.property_name = @sheet.property_name
 		@tbl_spec.team1 = @sheet.team1
@@ -83,7 +84,7 @@ class SheetsController < ApplicationController
 
 	def update
 		@sheet = Sheet.find(params[:id])
-		
+
 		update_property
 		update_teamnames
 		update_tbl_spec

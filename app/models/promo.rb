@@ -1,4 +1,4 @@
 class Promo < ActiveRecord::Base
 	belongs_to :sheet
-	has_one :ae_spec
+	has_one :ae_spec, dependent: :delete
 end
