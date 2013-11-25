@@ -20,18 +20,21 @@
 	text-decoration:none;
 	margin: 0;
 	padding:0;
+	border-spacing:0px;
 }
 
 html{
 	background-color:#202020;
-	/*background-image:url('carbonfibertile.jpg');*/
+	background-image:url('carbonfibertile.png');
 }
 
 h1{
 	font-family: 'Francois One', sans-serif;
 }
 
-
+a{
+	color:inherit;
+}
 
 #topbar{
 	height:50px;
@@ -125,12 +128,12 @@ input{
 }
 
 #main{
-	margin-top:90px;
+	margin-top:60px;
 	min-width: 1000px;
 }
 	#form_container{
-		height:550px;
-		width:900px;
+		height:510px;
+		width:950px;
 		margin:auto
 	}
  
@@ -169,6 +172,8 @@ input{
          0px 5px 23px rgba(0,0,0,0.1);
          line-height:40px;
 			}
+
+
 			.checkbox .checkbox_label{
 				
 				background-color:#2E598B;
@@ -186,8 +191,14 @@ input{
 			}
 
 		#noncheck_container{
-			float:right;
-			margin-top:5px;
+			float:left;
+			margin-top:0px;
+			margin-left:10px;
+		}
+
+		#above_table{
+			width:700px;
+			margin:0 auto 5px auto;
 		}
 
 
@@ -196,8 +207,7 @@ input{
 			}
 
 			#noncheck_container .entry_area input{
-				width:200px;
-				height:40px;
+				height:39px;
 				background-color: #EBC992;
 				border:none;
 				color:black;
@@ -208,7 +218,6 @@ input{
 			}
 
 			#noncheck_container .entry_area select{
-				width:200px;
 				height:40px;
 				background-color: #EBC992;
 				border:none;
@@ -224,6 +233,146 @@ input{
 				margin-bottom:4px;
 			}
 
+			#weekdayboxes .entry_area select{
+				width:199px;
+			}
+
+			.property .entry_area input{
+				width:600px;
+			}
+
+			.airtime_entry_area input{
+				width:140px;
+			}
+
+			.timezone_entry_area select{
+				width:50px;
+			}
+
+			.teamname .entry_area input{
+				width:258px;
+			}
+
+			.datefield .entry_area input{
+				width:258px;
+			}
+
+			.notefield .entry_area input{
+				width:600px;
+			}
+
+			#promorowcontainer .field_name{
+				width:100px;
+				text-align:center;
+				margin-bottom:0px;
+			}
+
+			#promorowcontainer .entry_area{
+				width:100px;
+				padding-right: 2px;
+				font-size:0.7em;
+			}
+
+			#promorowcontainer .length_column{
+				width:50px;
+			}
+
+			#promorowcontainer .length_column input{
+				width:50px;
+			}
+
+			#promorowcontainer .quantel_column{
+				width:300px;
+			}
+
+			#promorowcontainer .quantel_column input{
+				width:300px;
+			}
+
+			#promorowcontainer .s4m_column{
+				width:250px;
+			}
+
+			#promorowcontainer .s4m_column input{
+				width:250px;
+			}
+
+			#promorowcontainer .mcr_column{
+				width:60px;
+			}
+
+			#promorowcontainer .mcr_column input{
+				width:60px;
+			}
+
+			#promorowcontainer .purge_column{
+				width:180px;
+			}
+
+			#promorowcontainer .purge_column input{
+				width:177px;
+				overflow:hidden;
+			}
+
 	#form_bottom{
 		float:clear;
+		margin:auto;
+		width:300px;
+	}
+
+	#form_bottom button{
+		list-style:none;
+		display:inline-block;
+		border:1px solid rgba(0,0,0,0.2);
+		border-radius:10px;
+		height:32px;
+		margin-top:4px;
+		line-height:32px;
+		padding-left:10px;
+		padding-right:10px;
+		background-color:#10325C;
+		text-shadow: 0px 1px 3px rgba(0,0,0,0.4),
+	   0px 2px 13px rgba(0,0,0,0.1),
+	   0px 3px 23px rgba(0,0,0,0.1);
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size:1.3em;
+		box-shadow:inset 2px 2px 0px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(0,0,0,0.2);
+		transition:box-shadow 0.2s;
+	}
+
+	#form_bottom input{
+		list-style:none;
+		display:inline-block;
+		border:1px solid rgba(0,0,0,0.2);
+		border-radius:10px;
+		height:32px;
+		margin-top:4px;
+		line-height:32px;
+		padding-left:10px;
+		padding-right:10px;
+		background-color:#10325C;
+		text-shadow: 0px 1px 3px rgba(0,0,0,0.4),
+	   0px 2px 13px rgba(0,0,0,0.1),
+	   0px 3px 23px rgba(0,0,0,0.1);
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size:1.3em;
+		box-shadow:inset 2px 2px 0px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(0,0,0,0.2);
+		transition:box-shadow 0.2s;
+		color:white;
+	}
+
+	#form_bottom a{
+		color:white;
+	}
+
+	#form_bottom a:hover{
+		transition:color 0.5s;
+		color:#EBC992;
+	}
+
+	#form_bottom button:hover{
+		box-shadow:inset 0px 0px 0px 0px rgba(0,0,0,0.2),2px 2px 0px 0px rgba(0,0,0,0.2);
+	}
+	#form_bottom input:hover{
+		box-shadow:inset 0px 0px 0px 0px rgba(0,0,0,0.2),2px 2px 0px 0px rgba(0,0,0,0.2);
 	}

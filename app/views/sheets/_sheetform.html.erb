@@ -75,89 +75,87 @@
     </table>
 
     <div id = "noncheck_container">
-      <div class = "property">
-        <div class = "field_name">PROPERTY</div>
-        <div class = "entry_area"><%= s.text_field :property_name, autocomplete: "off" %></div>
-      </div>
+      <div id = "above_table">
+        <div class = "property">
+          <div class = "field_name">PROPERTY</div>
+          <div class = "entry_area"><%= s.text_field :property_name, autocomplete: "off" %></div>
+        </div>
 
-      <div id = "weekdayboxes">
-        <div class = "field_name">WEEKDAYS</div>
-        <div class = "entry_area">
-          <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
+        <div class = "teamname">
+          <div class="field_name">TEAM 1</div>
+          <div class="entry_area"><%= s.text_field :team1, autocomplete: "off" %></div>
+          <div class="field_name">TEAM 2</div>
+          <div class="entry_area"><%= s.text_field :team2, autocomplete: "off" %></div>
         </div>
-        <div class = "entry_area">
-          <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
-        </div>
-        <div class = "entry_area">
-          <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
-        </div>
-      </div>
 
-      <div id = "airtimes">
-        <%= s.fields_for :airtimes do |airtime_form| %>
-          <div class = "airtime">
-            <div class="field_name">AIRTIME</div>
-            <div class = "entry_area"><%=airtime_form.time_field :time %></div>
-            <div class="field_name">TIMEZONE</div>
-            <div class = "entry_area"><%=airtime_form.text_field :timezone%></div>
+
+        <div id = "weekdayboxes">
+          <div class = "field_name">WEEKDAYS</div>
+          <div class = "entry_area">
+            <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
           </div>
-        <% end %>
-      </div>
+          <div class = "entry_area">
+            <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
+          </div>
+          <div class = "entry_area">
+            <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
+          </div>
+        </div>
 
-      <div class = "teamname">
-        <div class="field_name">TEAM 1</div>
-        <div class="entry_area"><%= s.text_field :team1, autocomplete: "off" %></div>
-      </div>
+        <div id = "airtimes">
+          <div class="field_name">AIRTIMES</div>
+          <%= s.fields_for :airtimes do |airtime_form| %>
+              <div class = "airtime_entry_area entry_area"><%=airtime_form.time_field :time %></div>
+              <div class = "timezone_entry_area entry_area">
+                <%=airtime_form.select :timezone, options_for_select(["ET","MT","PT"]), {include_blank: true}%>
+              </div>
+            
+          <% end %>
+        </div>
 
-      <div class = "teamname">
-        <div class="field_name">TEAM 2</div>
-        <div class="entry_area"><%= s.text_field :team2, autocomplete: "off" %></div>
-      </div>
 
-      <div class = "datefield">
-        <div class="field_name">EVENT DATE</div>
-        <%= s.date_field :event_date %>
-      </div>
+        <div class = "datefield">
+          <div class="field_name">EVENT DATE</div>
+          <div class="entry_area"><%= s.date_field :event_date %></div>
+          <div class="field_name">DUE DATE</div>
+          <div class="entry_area"><%= s.date_field :due_date %></div>
+        </div>
 
-      <div class = "datefield">
-        <div class="field_name">DUE DATE</div>
-        <%= s.date_field :due_date %>
-      </div>
-
-      <div class = "notefield">
-        <div class="field_name">NOTE</div>
-        <%= s.text_field :note %>
+        <div class = "notefield">
+          <div class="field_name">NOTE</div>
+          <div class="entry_area"><%= s.text_field :note %></div>
+        </div>
       </div>
 
       <div id = "promorowcontainer">
         <!--ROW SECTION-->
         <table>
           <tr>
-            <td>Length</td>
-            <td>Quantel Name</td>
-            <td>S4M Name</td>
-            <td>MCR #</td>
-            <td>Purge Date</td>
+            <td class="field_name length_column">Length</td>
+            <td class="field_name quantel_column">Quantel Name</td>
+            <td class="field_name s4m_column">S4M Name</td>
+            <td class="field_name mcr_column">MCR #</td>
+            <td class="field_name purge_column">Purge Date</td>
           </tr>
           <%= s.fields_for :promos do |promo_form| %>
             <tr>
-              <td>
+              <td class="entry_area length_column">
                 <%#=promo_form.label :length%>
-                <%=promo_form.number_field :length%>
+                <%=promo_form.text_field :length%>
               </td>
-              <td>
+              <td class="entry_area quantel_column">
                 <%#=promo_form.label :quantel_name%>
                 <%=promo_form.text_field :quantel_name%>
               </td>
-              <td>
+              <td class="entry_area s4m_column">
                 <%#=promo_form.label :s4m_name%>
                 <%=promo_form.text_field :s4m_name%>
               </td>
-              <td>
+              <td class="entry_area mcr_column">
                 <%#=promo_form.label :mcr_number%>
-                <%=promo_form.number_field :mcr_number%>
+                <%=promo_form.text_field :mcr_number%>
               </td>
-              <td>
+              <td class="entry_area purge_column">
                 <%#=promo_form.label :purge_date%>
                 <%=promo_form.date_field :purge_date%>
               </td>

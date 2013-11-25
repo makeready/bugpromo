@@ -9,7 +9,7 @@ class SheetsController < ApplicationController
 	def new
 		@sheet = current_user.sheets.build
 		3.times {@sheet.airtimes.build}
-		3.times {@sheet.promos.build}
+		5.times {@sheet.promos.build}
 		@property_names = Property.all.map{|x| x.name}
 		@teamnames = Teamname.all.map{|x| x.name}
 	end
