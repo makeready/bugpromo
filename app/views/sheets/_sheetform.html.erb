@@ -161,18 +161,15 @@
               </td>
             </tr>
           <% end %>
-
         </table>
+        <div id = "form_bottom">
+          <%= s.submit %>
+          <button>
+            <%= link_to "Cancel", sheets_path %>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-
-
-  <div id = "form_bottom">
-    <%= s.submit %>
-    <button>
-      <%= link_to "Cancel", sheets_path %>
-    </button>
   </div>
 <% end %>
 
