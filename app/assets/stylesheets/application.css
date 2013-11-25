@@ -493,3 +493,7 @@ input{
 .listtable .index_button:hover{
 	color:#D4993A;
 }
+
+.listtable .field_name_wide{
+	width:400px;
+}

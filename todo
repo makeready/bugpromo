@@ -28,6 +28,8 @@ sheet index needs:
   editor  - time/datestamp
   due date
 suppress first three columns in tbl_spec
+suppress empty submodels from tbl_spec
+show simple dates/times in tbl_spec
 
 ///STYLING
 add printer-friendly toggle in sheet#show

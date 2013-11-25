@@ -9,7 +9,7 @@
 	</tr>
 	<% @sheets.each do |sheet| %>
 		<tr>
-			<td class="field_name">
+			<td class="field_name field_name_wide">
 				<%= link_to "#{sheet.team1} vs #{sheet.team2}", sheet_path(sheet) %>
 			</td>
 			<% if sheet.tbl_spec %>

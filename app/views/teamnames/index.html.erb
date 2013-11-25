@@ -4,8 +4,8 @@
 		<td class="field_name">Name</td>
 	</tr>
 
-	<% @newteamname = Teamname.new %>
-	<%= form_for @newteamname do |nt| %>
+	<%# @newteamname = Teamname.new %>
+	<%= form_for Teamname.new do |nt| %>
 		<tr>
 			<td class="entry_area"><%= nt.text_field :name %></td>
 			<td class="item_button"><%= nt.submit %></td>
