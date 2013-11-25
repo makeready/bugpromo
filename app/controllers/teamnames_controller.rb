@@ -5,7 +5,7 @@ class TeamnamesController < ApplicationController
 	end
 
 	def create
-		@teamnames = Teamname.new(teamname_params)
+		@teamname = Teamname.new(teamname_params)
 		if @teamname.save
 			redirect_to teamnames_path
 		else
@@ -13,7 +13,7 @@ class TeamnamesController < ApplicationController
 		end
 	end
 
-	def destroy
+  def destroy
     @teamname = Teamname.find(params[:id])
     @teamname.destroy
     redirect_to teamnames_path
@@ -30,6 +30,6 @@ class TeamnamesController < ApplicationController
   end
 
 	def teamname_params
-		params.require(:property).permit(:name)
+		params.require(:teamname).permit(:name)
 	end
 end

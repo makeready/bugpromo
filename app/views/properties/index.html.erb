@@ -1,23 +1,30 @@
-<h1>Manage Properties</h1>
+<table class="listtable">
+	<tr>
+		<td class="field_name">Name</td>
+		<td class="field_name">Image Path</td>
+		<td class="field_name">Logo Path</td>
+	</tr>
+	<% @newproperty = Property.new %>
+	<%= form_for @newproperty do |np| %>
+		<tr>
+			<td class="entry_area"><%= np.text_field :name %></td>
+			<td class="entry_area"><%= np.text_field :image_path %></td>
+			<td class="entry_area"><%= np.text_field :logo_path %></td>
+			<td class="item_button"><%= np.submit %></td>
+		</tr>
+	<% end %>
 
-<p><span>Name</span><span>Image Path</span><span>Logo Path</span></p>
-<% @newproperty = Property.new %>
-<%= form_for @newproperty do |np| %>
-	<%= np.text_field :name %>
-	<%= np.text_field :image_path %>
-	<%= np.text_field :logo_path %>
-	<%= np.submit %>
-<% end %>
-<br>
-<% @properties.each do |property| %>
-		<%= form_for property do |p| %>
-			<%= p.text_field :name %>
-			<%= p.text_field :image_path %>
-			<%= p.text_field :logo_path %>
-			<%= p.submit %>
-		<% end %>
-	<button class = "delete-property-button">
-			<%= link_to "Delete Property", property_path(property.id), confirm: "Are you sure you wish to delete this property?", method: :delete %>
-	</button>
-	<br>
-<% end %>
+	<% @properties.each do |property| %>
+		<tr>
+			<%= form_for property do |p| %>
+				<td class="entry_area"><%= p.text_field :name %></td>
+				<td class="entry_area"><%= p.text_field :image_path %></td>
+				<td class="entry_area"><%= p.text_field :logo_path %></td>
+				<td class="item_button"><%= p.submit %></td>
+				<td class="delete_button">
+					<%= link_to "Delete Property", property_path(property.id), confirm: "Are you sure you wish to delete this property?", method: :delete %>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>

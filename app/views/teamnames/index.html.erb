@@ -1,19 +1,26 @@
-<h1>Manage Teamnames</h1>
+<table class="listtable">
 
-<p>Name</p>
-<% @newteamname = Teamname.new %>
-<%= form_for @newteamname do |nt| %>
-	<%= nt.text_field :name %>
-	<%= nt.submit %>
-<% end %>
-<br>
-<% @teamnames.each do |teamname| %>
-		<%= form_for teamname do |p| %>
-			<%= p.text_field :name %>
-			<%= p.submit %>
-		<% end %>
-	<button class = "delete-teamname-button">
-			<%= link_to "Delete Teamname", teamname_path(teamname.id), confirm: "Are you sure you wish to delete this teamname?", method: :delete %>
-	</button>
-	<br>
-<% end %>
+	<tr>
+		<td class="field_name">Name</td>
+	</tr>
+
+	<% @newteamname = Teamname.new %>
+	<%= form_for @newteamname do |nt| %>
+		<tr>
+			<td class="entry_area"><%= nt.text_field :name %></td>
+			<td class="item_button"><%= nt.submit %></td>
+		</tr>
+	<% end %>
+
+	<% @teamnames.each do |teamname| %>
+		<tr>
+			<%= form_for teamname do |p| %>
+				<td class="entry_area"><%= p.text_field :name %></td>
+				<td class="item_button"><%= p.submit %></td>
+			<% end %>
+			<td class = "delete_button">
+					<%= link_to "Delete Teamname", teamname_path(teamname.id), confirm: "Are you sure you wish to delete this teamname?", method: :delete %>
+			</td>
+		</tr>
+	<% end %>
+</table>

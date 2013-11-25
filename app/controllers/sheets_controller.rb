@@ -1,7 +1,4 @@
-require 'debugger'
-
 class SheetsController < ApplicationController
-	autocomplete :property, :name
 	def index
 		@sheets = Sheet.all
 	end
