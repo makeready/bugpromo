@@ -126,12 +126,12 @@ input{
 
 #main{
 	margin-top:90px;
-	margin-left:50px;
 	min-width: 1000px;
 }
 	#form_container{
 		height:550px;
-		width:800px;
+		width:900px;
+		margin:auto
 	}
  
 	 	#checkbox_container{
