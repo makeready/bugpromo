@@ -51,13 +51,13 @@ a{
 	width:100%;
 	border-bottom:1px solid black;
 	box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);
-	min-width:1000px;
+	min-width:1150px;
 }
 	#logo_crop{
 		
 		width:195px;
 		position:fixed;
-		top:50px;
+		bottom:0;
 		right:0;
 	}
 		#logo_crop img{
@@ -134,7 +134,7 @@ input{
 
 #main{
 	margin-top:60px;
-	min-width: 1000px;
+	min-width: 1150px;
 }
 	#form_container{
 		height:510px;
