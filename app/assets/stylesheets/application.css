@@ -83,11 +83,18 @@ h1{
 				padding-left:10px;
 				padding-right:10px;
 				background-color:#10325C;
-				
+				text-shadow: 0px 1px 3px rgba(0,0,0,0.4),
+         0px 2px 13px rgba(0,0,0,0.1),
+         0px 3px 23px rgba(0,0,0,0.1);
 				font-family: 'Roboto Condensed', sans-serif;
 				font-size:1.3em;
-				box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);
+				box-shadow:inset 2px 2px 0px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(0,0,0,0.2);
+				transition:box-shadow 0.2s;
 			}
+
+				.topbar_list li:hover{
+					box-shadow:inset 0px 0px 0px 0px rgba(0,0,0,0.2),2px 2px 0px 0px rgba(0,0,0,0.2);
+				}
 
 			
 
@@ -144,21 +151,26 @@ input{
 				padding-right:0px;
 				line-height:40px;
 				height:40px;
-				border:1px solid rgba(255,255,255,0.5);
 			}
+
 
 			.checkbox .checkbox_label{
 				width:50px;
 				height:40px;
 				background-color:#2E598B;
 				text-align:right;
-				padding-right:2px;
+				padding-right:5px;
+				box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2) inset;
+				text-shadow: 0px 1px 3px rgba(0,0,0,0.4),
+         0px 3px 13px rgba(0,0,0,0.1),
+         0px 5px 23px rgba(0,0,0,0.1);
 			}
 
 			.checkbox .checkbox_box{
 				background-color: #EBC992; 
 				text-align:center;
 				width:20px;
+				box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2) inset;
 			}
 
 		#noncheck_container{
@@ -173,7 +185,6 @@ input{
 				color:white;
 				display:inline-block;
 				font-family: 'Roboto Condensed', sans-serif;
-				border:1px solid rgba(255,255,255,0.5);
 				font-size:0.8em;
 			}
 
