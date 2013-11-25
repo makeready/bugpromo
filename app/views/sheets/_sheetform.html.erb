@@ -14,62 +14,62 @@
   <div id="form_container">
     <table id = "checkbox_container">
       <tr class = "checkbox">
-        <td class = "checkbox_label">SENS</td>
+        <td class = "checkbox_label field_name">SENS</td>
         <td class = "checkbox_box"><%= s.check_box :sens%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">FLAMES</td>
+        <td class = "checkbox_label field_name">FLAMES</td>
         <td class = "checkbox_box"><%= s.check_box :flames%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">OILERS</td>
+        <td class = "checkbox_label field_name">OILERS</td>
         <td class = "checkbox_box"><%= s.check_box :oilers%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">VAN HKY</td>
+        <td class = "checkbox_label field_name">VAN HKY</td>
         <td class = "checkbox_box"><%= s.check_box :van_hky%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">WORLD</td>
+        <td class = "checkbox_label field_name">WORLD</td>
         <td class = "checkbox_box"><%= s.check_box :world%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">ONE</td>
+        <td class = "checkbox_label field_name">ONE</td>
         <td class = "checkbox_box"><%= s.check_box :one%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">EAST</td>
+        <td class = "checkbox_label field_name">EAST</td>
         <td class = "checkbox_box"><%= s.check_box :east%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">ONTARIO</td>
+        <td class = "checkbox_label field_name">ONTARIO</td>
         <td class = "checkbox_box"><%= s.check_box :ontario%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">WEST</td>
+        <td class = "checkbox_label field_name">WEST</td>
         <td class = "checkbox_box"><%= s.check_box :west%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">PACIFIC</td>
+        <td class = "checkbox_label field_name">PACIFIC</td>
         <td class = "checkbox_box"><%= s.check_box :pacific%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">360</td>
+        <td class = "checkbox_label field_name">360</td>
         <td class = "checkbox_box"><%= s.check_box :is_360%></td>
       </tr>
 
       <tr class = "checkbox">
-        <td class = "checkbox_label">SNIPE?</td>
+        <td class = "checkbox_label field_name">SNIPE?</td>
         <td class = "checkbox_box"><%= s.check_box :snipe_required%></td>
       </tr>
     </table>
@@ -77,7 +77,7 @@
     <div id = "noncheck_container">
       <div class = "property">
         <div class = "field_name">PROPERTY</div>
-        <div class = "entry_area"><%= s.text_field :property_name %></div>
+        <div class = "entry_area"><%= s.text_field :property_name, autocomplete: "off" %></div>
       </div>
 
       <div id = "weekdayboxes">
@@ -106,26 +106,26 @@
 
       <div class = "teamname">
         <div class="field_name">TEAM 1</div>
-        <div class="entry_area"><%= s.text_field :team1 %></div>
+        <div class="entry_area"><%= s.text_field :team1, autocomplete: "off" %></div>
       </div>
 
       <div class = "teamname">
         <div class="field_name">TEAM 2</div>
-        <div class="entry_area"><%= s.text_field :team2 %></div>
+        <div class="entry_area"><%= s.text_field :team2, autocomplete: "off" %></div>
       </div>
 
       <div class = "datefield">
-        <%= s.label :event_date %>
+        <div class="field_name">EVENT DATE</div>
         <%= s.date_field :event_date %>
       </div>
 
       <div class = "datefield">
-        <%= s.label :due_date %>
+        <div class="field_name">DUE DATE</div>
         <%= s.date_field :due_date %>
       </div>
 
       <div class = "notefield">
-        <%= s.label :note %>
+        <div class="field_name">NOTE</div>
         <%= s.text_field :note %>
       </div>
 
