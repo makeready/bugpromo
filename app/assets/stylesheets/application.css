@@ -402,6 +402,8 @@ input{
 	width:285px;
 	text-align:center;
 	display:inline-block;
+	height:25px;
+	line-height:25px;
 }
 
 .listtable .entry_area input{
@@ -467,4 +469,27 @@ input{
 
 .listtable .delete_button:hover{
 	color:red;
+}
+
+.listtable .index_button{
+	list-style:none;
+	display:inline-block;
+	height:25px;
+	line-height:25px;
+	width:140px;
+	text-align:center;
+	background-color:#10325C;
+	text-shadow: 0px 1px 3px rgba(0,0,0,0.4),
+   0px 2px 13px rgba(0,0,0,0.1),
+   0px 3px 23px rgba(0,0,0,0.1);
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:0.8em;
+	box-shadow:inset 2px 2px 0px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(0,0,0,0.2);
+	border:none;
+	transition:color 0.5s;
+	color:white;
+}
+
+.listtable .index_button:hover{
+	color:#D4993A;
 }

@@ -12,31 +12,30 @@
 * fixed tbl_spec.to_csv not working at all
 * fixed new tbl_specs dont have the right sheet_id
 * style topbar
-
+* style input form for sheet
+* style property manager
+* style sheet index
+* fixed timezone selector
 
 ///FUNCTION
+there should be multiple tbl_specs per weekday in sheet
 set up ae_spec.content on sheet#create / sheet#edit
 set up view / download ae_spec buttons
 restrict sheet deletion and editing to logged in users
 add validation for sheet#create and sheet#edit
+sheet index needs:
+  Creator - time /date stamp
+  editor  - time/datestamp
+  due date
+suppress first three columns in tbl_spec
 
 ///STYLING
-style input form for sheet
-style property manager
-style sheet index
 add printer-friendly toggle in sheet#show
 
 ///QUESTIONS FOR LAWRENCE
 only city name in tbl_spec, instead of full team name??   //Wait until pitch
-how to handle multiple weekday names in tbl_spec?? // Separate rows per weekday
-what are the possible timezones??  //ET PT MT
 obtain seed list of properties?? // lawrence will provide these 
 get more specific ae_spec.content requirements // set up given as a sample, start is the ET 24h time
-what info to show on sheet#index page?? // sheet#show needs to be printer friendly
-			//Creator - time /date stamp
-			//editor  - time/datestamp
-			//due date
-include first 3 columns in css? (id/created_at/updated_at)  //hide these 
-ask for logos and background and font and title
 
 ///BUGS
+weird button not working bug
