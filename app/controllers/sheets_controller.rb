@@ -17,7 +17,6 @@ class SheetsController < ApplicationController
 		@sheet.team2.upcase!
 		@sheet.property_name.upcase!
 		@property = Property.find_or_create_by(name: @sheet.property_name)
-		debugger
 		if @sheet.save
 			update_property(@property)
 			update_teamnames

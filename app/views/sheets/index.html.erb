@@ -7,7 +7,7 @@
 			<%= link_to "Download All-Sheet CSV", tbl_specs_path(format: "csv") %>
 		</td>
 		<td class="index_button">
-			<%= link_to "View All-Sheet AE Format", ae_specs_path(format: "json") %>
+			<%= link_to "View All-Sheet AE Format", ae_specs_path(format: "html") %>
 		</td>
 	</tr>
 	<% @sheets.each do |sheet| %>
@@ -25,7 +25,7 @@
 			<% end %>
 			<% if sheet.ae_specs %>
 				<td class="index_button">
-					<%= link_to "View AE Format", sheet_ae_specs_path(sheet.id, format:"json")%>
+					<%= link_to "View AE Format", sheet_ae_specs_path(sheet.id, format:"html")%>
 				</td>
 			<% end %>
 			<% if current_user %>

@@ -26,6 +26,7 @@ class PropertiesController < ApplicationController
       @tbl_specs.each do |tbl_spec|
         tbl_spec.image_path = @property.image_path
         tbl_spec.logo_path = @property.logo_path
+        tbl_spec.save
       end
       redirect_to properties_path
     else
