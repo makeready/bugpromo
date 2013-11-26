@@ -33,6 +33,7 @@
 * Change to property details updates all associated tbl_specs
 * AE spec corrected to lawrence format
 * styled signup and login pages
+* added creator and due date to sheet index
 
 ///FUNCTION
 
@@ -45,14 +46,8 @@
 	*PROPERTIES
 
 	*LAYOUT
-		sheet index needs:
-		  Creator - time /date stamp
-		  editor  - time/datestamp
-		  due date
-
-///STYLING
-add printer-friendly toggle in sheet#show
-?? use AJAX to keep the topbar loaded
+		add printer-friendly toggle in sheet#show
+		use AJAX to keep the topbar loaded
 
 ///BUGS
 
