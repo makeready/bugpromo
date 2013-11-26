@@ -8,4 +8,7 @@ class Sheet < ActiveRecord::Base
 
 	accepts_nested_attributes_for :airtimes
 	accepts_nested_attributes_for :promos
+
+  validates_presence_of :weekday1, :team1, :team2, :property_name
+
 end

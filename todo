@@ -27,6 +27,7 @@
 * set up view / download ae_spec buttons
 * set up given as a sample, start is the ET 24h time
 * upcase teamnames and propertyname on sheet#create and sheet#update
+*	restrict sheet deletion and editing to logged in users
 
 ///FUNCTION
 
@@ -35,7 +36,6 @@
 	*AESPEC
 
 	*VALIDATION
-		restrict sheet deletion and editing to logged in users
 		add validation for sheet#create and sheet#edit
 		
 	*PROPERTIES
@@ -50,6 +50,7 @@
 ///STYLING
 add printer-friendly toggle in sheet#show
 style signup and login pages
+?? use AJAX to keep the topbar loaded
 
 ///BUGS
 updating sheet duplicates promo rows and airtimes

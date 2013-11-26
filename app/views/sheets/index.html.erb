@@ -28,9 +28,11 @@
 					<%= link_to "View AE Format", sheet_ae_specs_path(sheet.id, format:"json")%>
 				</td>
 			<% end %>
-			<td class="delete_button">
-				<%= link_to "Delete Sheet", sheet_path(sheet.id), confirm: "Are you sure you wish to delete this sheet?", method: :delete %>
-			</td>
+			<% if current_user %>
+				<td class="delete_button">
+					<%= link_to "Delete Sheet", sheet_path(sheet.id), confirm: "Are you sure you wish to delete this sheet?", method: :delete %>
+				</td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>

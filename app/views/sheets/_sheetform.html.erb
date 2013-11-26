@@ -2,10 +2,10 @@
 
   <% if @sheet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prevented this sheet from being saved.</h2>
+      <h2><%= pluralize(@sheet.errors.count, "error") %> prevented this sheet from being saved.</h2>
       <ul>
       <% @sheet.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>. 
       <% end %>
       </ul>
     </div>
@@ -162,10 +162,16 @@
           <% end %>
         </table>
         <div id = "form_bottom">
-          <%= s.submit %>
-          <button>
-            <%= link_to "Cancel", sheets_path %>
-          </button>
+          <% if current_user %>
+            <%= s.submit %>
+            <button>
+              <%= link_to "Cancel", sheets_path %>
+            </button>
+          <% else %>
+            <button>
+              <%= link_to "Back", sheets_path %>
+            </button>
+          <% end %>
         </div>
       </div>
     </div>
@@ -173,13 +179,13 @@
 <% end %>
 
 
-<% if @property_names.size > 0 %>
+<% if @property_names %>
   <script>
     $( "#sheet_property_name" ).autocomplete({source: <%= raw @property_names%>});
   </script>
 <% end %>
 
-<% if @teamnames.size > 0 %>
+<% if @teamnames %>
   <script>
     $( "#sheet_team1").autocomplete({source: <%= raw @teamnames%>});
     $( "#sheet_team2").autocomplete({source: <%= raw @teamnames%>});

@@ -16,21 +16,23 @@ class SheetsController < ApplicationController
 		@sheet.team1.upcase!
 		@sheet.team2.upcase!
 		@sheet.property_name.upcase!
-		@sheet.save
-
 		@property = Property.find_or_create_by(name: @sheet.property_name)
-		update_property(@property)
-		update_teamnames
+		if @sheet.save
+			update_property(@property)
+			update_teamnames
 
-		update_tbl_spec(@sheet.weekday1, @property)
-		update_tbl_spec(@sheet.weekday2, @property)
-		update_tbl_spec(@sheet.weekday3, @property)
+			update_tbl_spec(@sheet.weekday1, @property)
+			update_tbl_spec(@sheet.weekday2, @property)
+			update_tbl_spec(@sheet.weekday3, @property)
 
-		update_ae_spec(@sheet.weekday1)
-		update_ae_spec(@sheet.weekday2)	
-		update_ae_spec(@sheet.weekday3)	
+			update_ae_spec(@sheet.weekday1)
+			update_ae_spec(@sheet.weekday2)	
+			update_ae_spec(@sheet.weekday3)	
 
-		redirect_to sheets_path
+			redirect_to sheets_path
+		else
+			render :new
+		end
 	end
 
 	def update_tbl_spec(weekday, property)
@@ -64,12 +66,11 @@ class SheetsController < ApplicationController
 	def update_ae_spec(weekday)
 		unless weekday.empty?
 			#CREATE AE SPEC  --- TEXT FILE FOR AFTEREFFECTS
-			@ae_spec = AeSpec.find_or_create_by(sheet_id: @sheet.id, weekday: weekday)
+			@ae_spec = AeSpec.find_or_create_by(sheet_id: @sheet.id, day: weekday)
 			@ae_spec.team1 = @sheet.team1
 			@ae_spec.team2 = @sheet.team2
 			@ae_spec.day = weekday
 			airtime = @sheet.airtimes.select{|a| a[:timezone] == "ET" }.first
-			debugger
 			@ae_spec.start = airtime[:time].hour
 			@ae_spec.sheet_id = @sheet.id
 			@ae_spec.save
@@ -102,7 +103,7 @@ class SheetsController < ApplicationController
 		@sheet.team1.upcase!
 		@sheet.team2.upcase!
 		@sheet.property_name.upcase!
-		
+
 		@property = Property.find_or_create_by(name: @sheet.property_name)
 		update_property(@property)
 		update_teamnames
