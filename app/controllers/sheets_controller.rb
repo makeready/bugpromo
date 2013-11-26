@@ -136,6 +136,6 @@ class SheetsController < ApplicationController
 	end
 
 	def sheet_params
-		params.require(:sheet).permit(:weekday1,:weekday2,:weekday3,:sens,:flames,:oilers,:van_hky,:world,:one,:east,:ontario,:west,:pacific,:is_360,:snipe_required,:team1,:team2,:property_name,:property_id,:user_id,:note,:event_date,:due_date, airtimes_attributes: [:sheet_id,:timezone,:time], promos_attributes: [:length,:quantel_name,:s4m_name,:mcr_number,:purge_date,:sheet_id])
+		params.require(:sheet).permit(:weekday1,:weekday2,:weekday3,:sens,:flames,:oilers,:van_hky,:world,:one,:east,:ontario,:west,:pacific,:is_360,:snipe_required,:team1,:team2,:property_name,:property_id,:user_id,:note,:event_date,:due_date, airtimes_attributes: [:id,:sheet_id,:timezone,:time], promos_attributes: [:id,:length,:quantel_name,:s4m_name,:mcr_number,:purge_date,:sheet_id])
 	end
 end

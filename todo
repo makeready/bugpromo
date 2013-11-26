@@ -29,6 +29,7 @@
 * upcase teamnames and propertyname on sheet#create and sheet#update
 *	restrict sheet deletion and editing to logged in users
 * add validation for sheet#create and sheet#edit
+* fixed updating sheet duplicates promo rows and airtimes
 
 ///FUNCTION
 
@@ -54,7 +55,7 @@ style signup and login pages
 ?? use AJAX to keep the topbar loaded
 
 ///BUGS
-updating sheet duplicates promo rows and airtimes
+
 
 
 ///QUESTIONS FOR PITCH
