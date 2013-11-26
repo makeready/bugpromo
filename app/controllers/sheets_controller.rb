@@ -16,34 +16,40 @@ class SheetsController < ApplicationController
 		@sheet.save
 		update_property
 		update_teamnames
-		update_tbl_spec
+
+		update_tbl_spec(@sheet.weekday1)
+		update_tbl_spec(@sheet.weekday2)
+		update_tbl_spec(@sheet.weekday3)
+
+		
 		update_ae_spec	
 
 		redirect_to sheets_path
 	end
 
-	def update_tbl_spec
-		#CREATE TBL SPEC  --- CSV FILE
-		@tbl_spec = TblSpec.find_or_create_by(sheet_id: @sheet.id)
-		@tbl_spec.sheet_id = @sheet.id
-		puts "sheet.id: #{@sheet.id}, tbl_spec.sheet_id: #{@tbl_spec.sheet_id}"
-		@tbl_spec.image_path = @sheet.property.image_path
-		@tbl_spec.property_name = @sheet.property_name
-		@tbl_spec.team1 = @sheet.team1
-		@tbl_spec.team2 = @sheet.team2
-		@tbl_spec.time_variable = ""
-		@sheet.airtimes.each do |airtime|
-			@tbl_spec.time_variable += (airtime.time.to_s + " " + airtime.timezone + ";")
+	def update_tbl_spec(weekday)
+		unless weekday.empty?
+			#CREATE TBL SPEC  --- CSV FILE
+			@tbl_spec = TblSpec.find_or_create_by(sheet_id: @sheet.id, day: weekday)
+			@tbl_spec.sheet_id = @sheet.id
+			@tbl_spec.day = weekday
+			@tbl_spec.image_path = @sheet.property.image_path
+			@tbl_spec.property_name = @sheet.property_name
+			@tbl_spec.team1 = @sheet.team1
+			@tbl_spec.team2 = @sheet.team2
+			@tbl_spec.time_variable = ""
+			@sheet.airtimes.each do |airtime|
+				@tbl_spec.time_variable += (airtime.time.to_s + " " + airtime.timezone + ";")
+			end
+			@tbl_spec.world = @sheet.world
+			@tbl_spec.east = @sheet.east
+			@tbl_spec.ontario = @sheet.ontario
+			@tbl_spec.west = @sheet.west
+			@tbl_spec.pacific = @sheet.pacific
+			@tbl_spec.one = @sheet.one
+			@tbl_spec.logo_path = @sheet.property.logo_path
+			@tbl_spec.save 
 		end
-		@tbl_spec.day = @sheet.weekday1  #how to handle multiple weekend names?
-		@tbl_spec.world = @sheet.world
-		@tbl_spec.east = @sheet.east
-		@tbl_spec.ontario = @sheet.ontario
-		@tbl_spec.west = @sheet.west
-		@tbl_spec.pacific = @sheet.pacific
-		@tbl_spec.one = @sheet.one
-		@tbl_spec.logo_path = @sheet.property.logo_path
-		@tbl_spec.save 
 	end
 
 	def update_ae_spec

@@ -12,12 +12,12 @@
 			<td class="field_name field_name_wide">
 				<%= link_to "#{sheet.team1} vs #{sheet.team2}", sheet_path(sheet) %>
 			</td>
-			<% if sheet.tbl_spec %>
+			<% if sheet.tbl_specs %>
 				<td class="index_button">
-					<%= link_to "View CSV", tbl_spec_path(sheet.tbl_spec, format:"html") %>
+					<%= link_to "View CSV", sheet_tbl_specs_path(sheet.id, format:"html") %>
 				</td>
 				<td class="index_button">
-					<%= link_to "Download CSV", tbl_spec_path(sheet.tbl_spec, format:"csv") %>
+					<%= link_to "Download CSV", sheet_tbl_specs_path(sheet.id, format:"csv") %>
 				</td>
 			<% end %>
 			<td class="delete_button">
