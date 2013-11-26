@@ -17,6 +17,7 @@ class SheetsController < ApplicationController
 		@sheet.team2.upcase!
 		@sheet.property_name.upcase!
 		@property = Property.find_or_create_by(name: @sheet.property_name)
+		debugger
 		if @sheet.save
 			update_property(@property)
 			update_teamnames
@@ -36,7 +37,7 @@ class SheetsController < ApplicationController
 	end
 
 	def update_tbl_spec(weekday, property)
-		unless weekday.empty?
+		if !weekday.empty?
 			#CREATE TBL SPEC  --- CSV FILE
 			@tbl_spec = TblSpec.find_or_create_by(sheet_id: @sheet.id, day: weekday)
 			@tbl_spec.sheet_id = @sheet.id
@@ -64,13 +65,13 @@ class SheetsController < ApplicationController
 	end
 
 	def update_ae_spec(weekday)
-		unless weekday.empty?
+		airtime = @sheet.airtimes.select{|a| a[:timezone] == "ET" }.first
+		if airtime && !weekday.empty? 
 			#CREATE AE SPEC  --- TEXT FILE FOR AFTEREFFECTS
 			@ae_spec = AeSpec.find_or_create_by(sheet_id: @sheet.id, day: weekday)
 			@ae_spec.team1 = @sheet.team1
 			@ae_spec.team2 = @sheet.team2
 			@ae_spec.day = weekday
-			airtime = @sheet.airtimes.select{|a| a[:timezone] == "ET" }.first
 			@ae_spec.start = airtime[:time].hour
 			@ae_spec.sheet_id = @sheet.id
 			@ae_spec.save

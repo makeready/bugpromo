@@ -21,8 +21,12 @@ class PropertiesController < ApplicationController
 
   def update
     @property = Property.find(params[:id])
-
+    @tbl_specs = @property.tbl_specs
     if @property.update_attributes(property_params)
+      @tbl_specs.each do |tbl_spec|
+        tbl_spec.image_path = @property.image_path
+        tbl_spec.logo_path = @property.logo_path
+      end
       redirect_to properties_path
     else
       render :index
