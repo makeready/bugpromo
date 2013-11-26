@@ -5,8 +5,10 @@ Bugpromo::Application.routes.draw do
   resources :users, :only => [:new, :create]
   resources :sheets do
     resources :tbl_specs, :only => [:index]
+    resources :ae_specs, only: [:index]
   end
   resources :tbl_specs, only: [:index]
+  resources :ae_specs, only: [:index]
   resources :properties, :only => [:index, :create, :destroy, :update]
   resources :teamnames, :only => [:index, :create, :destroy, :update]
   

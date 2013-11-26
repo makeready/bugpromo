@@ -13,7 +13,11 @@ class SheetsController < ApplicationController
 
 	def create
 		@sheet = current_user.sheets.build(sheet_params)
+		@sheet.team1.upcase!
+		@sheet.team2.upcase!
+		@sheet.property_name.upcase!
 		@sheet.save
+
 		@property = Property.find_or_create_by(name: @sheet.property_name)
 		update_property(@property)
 		update_teamnames
@@ -22,8 +26,9 @@ class SheetsController < ApplicationController
 		update_tbl_spec(@sheet.weekday2, @property)
 		update_tbl_spec(@sheet.weekday3, @property)
 
-		
-		update_ae_spec	
+		update_ae_spec(@sheet.weekday1)
+		update_ae_spec(@sheet.weekday2)	
+		update_ae_spec(@sheet.weekday3)	
 
 		redirect_to sheets_path
 	end
@@ -41,7 +46,7 @@ class SheetsController < ApplicationController
 			@tbl_spec.time_variable = ""
 			@sheet.airtimes.each_with_index do |airtime, i|
 				if airtime.time
-					@tbl_spec.time_variable += airtime.time.hour.to_s + ":" + airtime.time.min.to_s + " " + airtime.timezone
+					@tbl_spec.time_variable += airtime.time.hour.to_s + ":" + sprintf('%02d',airtime.time.min) + " " + airtime.timezone
 					@tbl_spec.time_variable += " / " unless @sheet.airtimes[i+1].time == nil
 				end
 			end
@@ -56,11 +61,16 @@ class SheetsController < ApplicationController
 		end
 	end
 
-	def update_ae_spec
-		#CREATE AE SPEC  --- TEXT FILE FOR AFTEREFFECTS
-		@sheet.promos.each do |promo|
-			@ae_spec = AeSpec.find_or_create_by(promo_id: promo.id)
-			@ae_spec.content = ""
+	def update_ae_spec(weekday)
+		unless weekday.empty?
+			#CREATE AE SPEC  --- TEXT FILE FOR AFTEREFFECTS
+			@ae_spec = AeSpec.find_or_create_by(sheet_id: @sheet.id, weekday: weekday)
+			@ae_spec.team1 = @sheet.team1
+			@ae_spec.team2 = @sheet.team2
+			@ae_spec.day = weekday
+			airtime = @sheet.airtimes.select{|a| a[:timezone] == "ET" }.first
+			debugger
+			@ae_spec.start = airtime[:time].hour
 			@ae_spec.sheet_id = @sheet.id
 			@ae_spec.save
 		end
@@ -89,6 +99,10 @@ class SheetsController < ApplicationController
 
 	def update
 		@sheet = Sheet.find(params[:id])
+		@sheet.team1.upcase!
+		@sheet.team2.upcase!
+		@sheet.property_name.upcase!
+		
 		@property = Property.find_or_create_by(name: @sheet.property_name)
 		update_property(@property)
 		update_teamnames
@@ -97,7 +111,9 @@ class SheetsController < ApplicationController
 		update_tbl_spec(@sheet.weekday2, @property)
 		update_tbl_spec(@sheet.weekday3, @property)
 
-		update_ae_spec
+		update_ae_spec(@sheet.weekday1)
+		update_ae_spec(@sheet.weekday2)	
+		update_ae_spec(@sheet.weekday3)
 
 		if @sheet.update_attributes(sheet_params)
 			redirect_to edit_sheet_path(@sheet)

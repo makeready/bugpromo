@@ -1,3 +1,3 @@
 class AeSpec < ActiveRecord::Base
-	belongs_to :promo
+	belongs_to :sheet
 end

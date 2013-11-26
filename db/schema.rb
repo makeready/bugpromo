@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124045349) do
+ActiveRecord::Schema.define(version: 20131126182311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20131124045349) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sheet_id"
-    t.integer  "promo_id"
-    t.text     "content"
+    t.string   "team1"
+    t.string   "team2"
+    t.string   "start"
+    t.string   "day"
   end
 
   create_table "airtimes", force: true do |t|

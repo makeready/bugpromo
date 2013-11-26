@@ -22,19 +22,22 @@
 *	suppress empty submodels from tbl_spec
 *	show simple dates/times in tbl_spec
 * Existing values for weekday and timezone should be preselected in sheet#edit
+* fixed tblspec time format
+* set up ae_spec.content on sheet#create / sheet#edit
+* set up view / download ae_spec buttons
+* set up given as a sample, start is the ET 24h time
+* upcase teamnames and propertyname on sheet#create and sheet#update
 
 ///FUNCTION
 
+	*TBLSPEC
+
 	*AESPEC
-		set up ae_spec.content on sheet#create / sheet#edit
-		set up view / download ae_spec buttons
-		set up given as a sample, start is the ET 24h time
 
 	*VALIDATION
 		restrict sheet deletion and editing to logged in users
 		add validation for sheet#create and sheet#edit
-		upcase everything that can be upcased on .save
-
+		
 	*PROPERTIES
 		Change to property details should update all associated tbl_specs
 
@@ -48,12 +51,15 @@
 add printer-friendly toggle in sheet#show
 style signup and login pages
 
+///BUGS
+updating sheet duplicates promo rows and airtimes
+
+
 ///QUESTIONS FOR PITCH
+
+**** CREATE PRESENTATION / PRICING OPTIONS
 only city name in tbl_spec, instead of full team name?
 obtain seed list of properties?
 logo path the same each time or variable?
 get more specific ae_spec.content requirements
   
-///BUGS
-
-updating sheet duplicates promo rows

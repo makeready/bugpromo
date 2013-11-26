@@ -6,6 +6,9 @@
 		<td class="index_button">
 			<%= link_to "Download All-Sheet CSV", tbl_specs_path(format: "csv") %>
 		</td>
+		<td class="index_button">
+			<%= link_to "View All-Sheet AE Format", ae_specs_path(format: "json") %>
+		</td>
 	</tr>
 	<% @sheets.each do |sheet| %>
 		<tr>
@@ -18,6 +21,11 @@
 				</td>
 				<td class="index_button">
 					<%= link_to "Download CSV", sheet_tbl_specs_path(sheet.id, format:"csv") %>
+				</td>
+			<% end %>
+			<% if sheet.ae_specs %>
+				<td class="index_button">
+					<%= link_to "View AE Format", sheet_ae_specs_path(sheet.id, format:"json")%>
 				</td>
 			<% end %>
 			<td class="delete_button">
