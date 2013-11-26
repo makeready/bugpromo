@@ -18,14 +18,12 @@
 * fixed timezone selector
 * weird button not working bug - disabled turbolinks
 * there should be multiple tbl_specs per weekday in sheet
+* suppress first four columns in tbl_spec
+*	suppress empty submodels from tbl_spec
+*	show simple dates/times in tbl_spec
+* Existing values for weekday and timezone should be preselected in sheet#edit
 
 ///FUNCTION
-
-	*TBLSPEC
-		
-		suppress first three columns in tbl_spec
-		suppress empty submodels from tbl_spec
-		show simple dates/times in tbl_spec
 
 	*AESPEC
 		set up ae_spec.content on sheet#create / sheet#edit
@@ -36,6 +34,9 @@
 		restrict sheet deletion and editing to logged in users
 		add validation for sheet#create and sheet#edit
 		upcase everything that can be upcased on .save
+
+	*PROPERTIES
+		Change to property details should update all associated tbl_specs
 
 	*LAYOUT
 		sheet index needs:
@@ -54,3 +55,5 @@ logo path the same each time or variable?
 get more specific ae_spec.content requirements
   
 ///BUGS
+
+updating sheet duplicates promo rows

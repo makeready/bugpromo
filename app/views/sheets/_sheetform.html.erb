@@ -92,13 +92,13 @@
         <div id = "weekdayboxes">
           <div class = "field_name">WEEKDAYS</div>
           <div class = "entry_area">
-            <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
+            <%= s.select :weekday1, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"], @sheet.weekday1), {include_blank: true} %>
           </div>
           <div class = "entry_area">
-            <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
+            <%= s.select :weekday2, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"], @sheet.weekday2), {include_blank: true} %>
           </div>
           <div class = "entry_area">
-            <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"]), {include_blank: true} %>
+            <%= s.select :weekday3, options_for_select(["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY","TODAY","TONIGHT","TOMORROW"], @sheet.weekday3), {include_blank: true} %>
           </div>
         </div>
 
@@ -107,9 +107,8 @@
           <%= s.fields_for :airtimes do |airtime_form| %>
               <div class = "airtime_entry_area entry_area"><%=airtime_form.time_field :time %></div>
               <div class = "timezone_entry_area entry_area">
-                <%=airtime_form.select :timezone, options_for_select(["ET","MT","PT"]), {include_blank: true}%>
+                <%=airtime_form.select :timezone, options_for_select(["ET","MT","PT"], @sheet.airtimes[airtime_form.index].timezone), {include_blank: true}%>
               </div>
-            
           <% end %>
         </div>
 
