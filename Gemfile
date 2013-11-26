@@ -49,4 +49,7 @@ gem "rails3-jquery-autocomplete"
 
 gem "debugger"
 
+gem 'rails_12factor', group: :production
 # gem "jazz_hands"
+
+ruby "1.9.3"
