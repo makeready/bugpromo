@@ -32,6 +32,7 @@
 * fixed updating sheet duplicates promo rows and airtimes
 * Change to property details updates all associated tbl_specs
 * AE spec corrected to lawrence format
+* styled signup and login pages
 
 ///FUNCTION
 
@@ -51,7 +52,6 @@
 
 ///STYLING
 add printer-friendly toggle in sheet#show
-style signup and login pages
 ?? use AJAX to keep the topbar loaded
 
 ///BUGS
