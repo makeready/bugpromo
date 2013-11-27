@@ -28,7 +28,7 @@
 					<%= link_to "View AE Format", sheet_ae_specs_path(sheet.id, format:"html")%>
 				</td>
 			<% end %>
-			<% if current_user %>
+			<% if current_user == sheet.user %>
 				<td class="delete_button">
 					<%= link_to "Delete Sheet", sheet_path(sheet.id), confirm: "Are you sure you wish to delete this sheet?", method: :delete %>
 				</td>
