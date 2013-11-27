@@ -575,3 +575,16 @@ input{
 	color:#D4993A;
 }
 
+#bottom_text{
+	position:fixed;
+	bottom:0;
+	left:5px;
+	font-family: 'Roboto Condensed', sans-serif;
+	color:white;
+	font-size: 0.7em;
+	transition:color 0.5s;
+}
+
+#bottom_text:hover{
+	color:#D4993A;
+}
