@@ -513,6 +513,13 @@ input{
 .listtable .index_field{
 	width:600px;
 	text-align:left;
+	transition:color 0.5s;
+}
+
+.listtable .index_field:hover{
+	width:600px;
+	text-align:left;
+	color:#64D66B;
 }
 
 
