@@ -48,6 +48,8 @@
 	*LAYOUT
 		add printer-friendly toggle in sheet#show
 		use AJAX to keep the topbar loaded
+		add default logo/img fields in property manager
+		Need to determine how AE spec handles events with no given ET
 
 ///BUGS
 
